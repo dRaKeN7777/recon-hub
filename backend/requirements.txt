@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+passlib[bcrypt]
+bcrypt==4.0.1
+python-jose
+pyotp
+requests
+psycopg2-binary
+qrcode
+pillow
+python-nmap
+python-whois
+alembic
+dnspython
+python-Wappalyzer
+sherlock-project
