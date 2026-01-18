@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - ReconHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="display:none">
+    <header>
+        <h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12h20M12 2v20"/>
+                <circle cx="12" cy="12" r="10"/>
+            </svg>
+            ReconHub
+        </h1>
+        <nav>
+            <a href="admin" id="adminLink" style="display: none;">Admin Panel</a>
+            <a href="settings">Settings</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2>New Scan</h2>
+            <div class="form-group">
+                <select id="scanType">
+                    <option value="" disabled selected>Loading types...</option>
+                </select>
+                <input id="scanTarget" placeholder="Target (e.g. google.com)">
+                <button onclick="runScan()">Start Scan</button>
+            </div>
+            <div id="scanStatus" style="margin-top: 10px; font-weight: 500;"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h2>Recent Scans</h2>
+                </div>
+                <div id="results"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Statistics</h2>
+                <div style="height: 300px;">
+                    <canvas id="scanChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

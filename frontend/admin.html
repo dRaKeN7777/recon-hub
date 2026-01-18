@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - ReconHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            Admin Panel
+        </h1>
+        <nav>
+            <a href="dashboard">Dashboard</a>
+            <a href="settings">Settings</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>User Management</h2>
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Search users..." onkeyup="debounceSearch(this.value)">
+                </div>
+                <div id="userList"></div>
+            </div>
+
+            <div class="card">
+                <h2>System Configuration</h2>
+                <div id="configList" class="config-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Edit User</h3>
+            <div class="form-group" style="flex-direction: column;">
+                <label>Username</label>
+                <input id="editUsername" disabled style="background: #334155; cursor: not-allowed;">
+                
+                <label>Role</label>
+                <select id="editRole">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button onclick="closeEditUser()" style="background: transparent; border: 1px solid #475569;">Cancel</button>
+                <button onclick="saveUser()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/admin.js?v=2"></script>
+</body>
+</html>
